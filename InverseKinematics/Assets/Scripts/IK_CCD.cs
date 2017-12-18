@@ -68,7 +68,9 @@ public class IK_CCD : MonoBehaviour
                     // to avoid dividing by tiny numbers
                     if (r1.Module() * r2.Module() <= 0.001f)
                     {
-
+                        // cos will be 1 and sin will be 0
+                        cos[i] = 1;
+                        sin[i] = 0;
                     }
                     else
                     {
@@ -82,15 +84,16 @@ public class IK_CCD : MonoBehaviour
                     Vec3 axis = r1.CrossProduct(r2).Normalize();
 
                     // find the angle between r1 and r2 (and clamp values if needed avoid errors)
-                    theta[i] = Mathf.Acos(cos[i]);
+                    theta[i] = Mathf.Acos(Mathf.Max(-1, Mathf.Min(1, cos[i])));
+                    
 
                     //Optional. correct angles if needed, depending on angles invert angle if sin component is negative
-                    if (sin[i] < 0)
+                     if (sin[i] < 0)
                         theta[i] = -theta[i];
 
                     // obtain an angle value between -pi and pi, and then convert to degrees
                     //theta[i] = TODO8
-                    theta[i] *= Mathf.Rad2Deg;
+                    theta[i] = (float)SimpleAngle(theta[i]) * Mathf.Rad2Deg;
 
                     // rotate the ith joint along the axis by theta degrees in the world space.
                     // TODO9
@@ -104,10 +107,13 @@ public class IK_CCD : MonoBehaviour
 
         // find the difference in the positions of the end effector and the target
         // TODO10
-        float f = (tpos - new Vec3(joints[joints.Length - 1].transform.position)).Module();
+        //float f = (tpos - new Vec3(joints[joints.Length - 1].transform.position)).Module();
+        float x = Mathf.Abs(joints[joints.Length - 1].transform.position.x - targ.transform.position.x);
+        float y = Mathf.Abs(joints[joints.Length - 1].transform.position.y - targ.transform.position.y);
+        float z = Mathf.Abs(joints[joints.Length - 1].transform.position.z - targ.transform.position.z);
 
         // if target is within reach (within epsilon) then the process is done
-        if (f < epsilon)
+        if (x < epsilon && y < epsilon && z < epsilon)
         {
             done = true;
         }
@@ -124,5 +130,16 @@ public class IK_CCD : MonoBehaviour
             tpos = targ.transform.position;
         }
 
+    }
+
+    // function to convert an angle to its simplest form (between -pi to pi radians)
+    double SimpleAngle(double theta)
+    {
+        theta = theta % (2.0 * Mathf.PI);
+        if (theta < -Mathf.PI)
+            theta += 2.0 * Mathf.PI;
+        else if (theta > Mathf.PI)
+            theta -= 2.0 * Mathf.PI;
+        return theta;
     }
 }
