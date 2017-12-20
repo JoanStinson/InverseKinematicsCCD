@@ -36,6 +36,8 @@ public class IK_CCD : MonoBehaviour
     // the range within which the target will be assumed to be reached
     private float epsilon = 0.1f;
 
+    public RotationLimit[] rotationLimit;
+
 
     // Initializing the variables
     void Start()
@@ -98,6 +100,8 @@ public class IK_CCD : MonoBehaviour
                     // rotate the ith joint along the axis by theta degrees in the world space.
                     // TODO9
                     joints[i].transform.rotation = Quat.AngleAxis(theta[i], axis) * new Quat(joints[i].transform.rotation);
+
+                    rotationLimit[i].Apply();
                 }
 
                 // increment tries

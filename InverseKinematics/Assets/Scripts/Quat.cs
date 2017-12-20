@@ -113,6 +113,16 @@ public class Quat {
         return quat;
     }
 
+    public static Quat Inverse(Quat q)
+    {
+        float temp = q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
+        q.w = q.w * (1 / temp);
+        q.x = -q.x * (1 / temp);
+        q.y = -q.y * (1 / temp);
+        q.z = -q.z * (1 / temp);
+        return q;
+    }
+
     public Quat Conjugate() {
         Quat quat = new Quat();
         quat.w = w;
@@ -131,5 +141,68 @@ public class Quat {
         quat.y = Mathf.Sin(angle / 2) * axis.y;
         quat.z = Mathf.Sin(angle / 2) * axis.z;
         return quat;
+    }
+
+    public static Quat Slerp(Quat q1, Quat q2, float t)
+    {
+        // Check for equality and skip operation.
+        if (q1.Equals(q2))
+        {
+            return q1;
+        }
+
+        float scale0 = 1 - t;
+        float scale1 = t;
+
+        Quat myQuat = Quat.Identity;
+        myQuat.x = (scale0 * q1.x) + (scale1 * q2.x);
+        myQuat.y = (scale0 * q1.y) + (scale1 * q2.y);
+        myQuat.z = (scale0 * q1.z) + (scale1 * q2.z);
+        myQuat.w = (scale0 * q1.w) + (scale1 * q2.w);
+
+        return myQuat.Normalize();
+    }
+
+    public static float Angle(Quat a, Quat b)
+    {
+        Quat inv = Inverse(a);
+        Quat res = b * inv;
+        return Mathf.Acos(res.w) * 2.0f * 57.2957795f; // To degrees!;
+    }
+
+    public static Quat RotateTowards(Quat from, Quat to, float maxDegreesDelta)
+    {
+        float num = Quat.Angle(from, to);
+        Quat result;
+        if (num == 0f)
+        {
+            result = to;
+        }
+        else
+        {
+            float t = Mathf.Min(1f, maxDegreesDelta / num);
+            result = Quat.Slerp(from, to, t);
+        }
+        return result;
+    }
+
+    public static Quat RotateFromTo(Vec3 source, Vec3 target)
+    {
+        source.Normalize();
+        target.Normalize();
+
+        Vec3 axis = source.CrossProduct(target);
+
+        Vec3 oldLength = axis.Normalize();
+
+        if (oldLength != Vec3.zero)
+        {
+            float halfCosAngle = 0.5f * source.DotProduct(target);
+            float cosHalfAngle = Mathf.Sqrt(0.5f + halfCosAngle);
+            float sinHalfAngle = Mathf.Sqrt(0.5f - halfCosAngle);
+            return new Quat(axis.x * sinHalfAngle, axis.y * sinHalfAngle, axis.z * sinHalfAngle, cosHalfAngle);
+        }
+        else
+            return new Quat(1.0f, 0.0f, 0.0f, 0.0f);
     }
 }

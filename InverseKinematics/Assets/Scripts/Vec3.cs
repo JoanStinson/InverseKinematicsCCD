@@ -84,6 +84,27 @@ public class Vec3 {
         return vec;
     }
 
+    public static Vec3 operator *(Quat quat, Vec3 vec)
+    {
+        float num = quat.x * 2f;
+        float num2 = quat.y * 2f;
+        float num3 = quat.z * 2f;
+        float num4 = quat.x * num;
+        float num5 = quat.y * num2;
+        float num6 = quat.z * num3;
+        float num7 = quat.x * num2;
+        float num8 = quat.x * num3;
+        float num9 = quat.y * num3;
+        float num10 = quat.w * num;
+        float num11 = quat.w * num2;
+        float num12 = quat.w * num3;
+        Vec3 result = new Vec3();
+        result.x = (1f - (num5 + num6)) * vec.x + (num7 - num12) * vec.y + (num8 + num11) * vec.z;
+        result.y = (num7 + num12) * vec.x + (1f - (num4 + num6)) * vec.y + (num9 - num10) * vec.z;
+        result.z = (num8 - num11) * vec.x + (num9 + num10) * vec.y + (1f - (num4 + num5)) * vec.z;
+        return result;
+    }
+
     /// <summary>
     /// Necessary & Utility Methods
     /// </summary>
@@ -114,6 +135,31 @@ public class Vec3 {
     public float Distance(Vec3 v) {
         float vec = Mathf.Pow((v.x - x), 2) + Mathf.Pow((v.y - y), 2) + Mathf.Pow((v.z - z), 2);
         return Mathf.Sqrt(vec);
+    }
+
+    public float SquareMagnitude()
+    {
+        return x * x + y * y + z * z;
+    }
+
+    public float SquareMagnitude(Vec3 vec3)
+    {
+        return vec3.x * vec3.x + vec3.y * vec3.y + vec3.z * vec3.z;
+    }
+
+    public static Vec3 ProjectAndCreate(Vec3 u, Vec3 v)
+    {
+        float d = u.DotProduct(v);
+        float d_div = d / v.SquareMagnitude();
+        return v * d_div;
+    }
+
+    public static void OrthoNormalize(Vec3 v1, Vec3 v2)
+    {
+        v1.Normalize();
+
+        Vec3 sub = new Vec3(v2 - Vec3.ProjectAndCreate(v2, v1));
+        sub.Normalize();
     }
 
 }

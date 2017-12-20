@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowMouse : MonoBehaviour {
 
     public GameObject target, father, child;
-    private float height = 5f, increase = 0.1f, originalHeight = 5f;
+    private float height = 5f, increase = 0.5f, originalHeight = 5f;
 
     void Update() {
 
@@ -14,10 +14,10 @@ public class FollowMouse : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.E)) {
             height += increase;
-            if (height > 90f) height = increase;
+            //if (height > 90f) height = increase;
         } else if (Input.GetKey(KeyCode.Q)) {
             height -= increase;
-            if (height < 0f) height = 90f;
+            //if (height < 0f) height = 90f;
         } else if (Input.GetKey(KeyCode.R)) {
             height = originalHeight;
         } else if (Input.GetKey(KeyCode.A)) {
