@@ -10,8 +10,8 @@ public class Spring : MonoBehaviour {
     public Vector3 position;
     public Vector3 velocity;
 
-    public float zeta = 0.9f; // damping ratio
-    public float omega = 0.1f; // angular frequency
+    public float zeta = 0.1f; // damping ratio
+    public float omega = 5f; // angular frequency
 
     // Use this for initialization
     void Start() {
