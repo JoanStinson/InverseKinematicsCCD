@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowMouse : MonoBehaviour {
 
     public GameObject target, father, child;
-    private float height = 5f, increase = 0.5f, originalHeight = 5f;
+    private float height = 60f, increase = 0.5f, originalHeight = 60f;
 
     void Update() {
 
