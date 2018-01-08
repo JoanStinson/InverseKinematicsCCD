@@ -105,6 +105,10 @@ public class Vec3 {
         return result;
     }
 
+    public static Vec3 operator /(Vec3 v, float scalar) {
+        return new Vec3(v.x / scalar, v.y / scalar, v.z / scalar);
+    }
+
     /// <summary>
     /// Necessary & Utility Methods
     /// </summary>

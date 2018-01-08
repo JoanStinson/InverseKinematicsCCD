@@ -7,8 +7,9 @@ public class Spring : MonoBehaviour {
     public Transform target; // rest
     private Transform localTransform;
 
-    public Vector3 position;
-    public Vector3 velocity;
+    public Vec3 position;
+    public Vec3 velocity;
+    public Vec3 mytarget;
 
     public float zeta = 0.1f; // damping ratio
     public float omega = 5f; // angular frequency
@@ -16,14 +17,16 @@ public class Spring : MonoBehaviour {
     // Use this for initialization
     void Start() {
         localTransform = GetComponent<Transform>();
-        position = localTransform.position;
-        velocity = Vector3.zero;
+        position = new Vec3(localTransform.position.x, localTransform.position.y, localTransform.position.z);
+        velocity = new Vec3(0, 0, 0);
+        mytarget = new Vec3(target.position.x, target.position.y, target.position.z); 
     }
 
     // Update is called once per frame
     void Update() {
         spring(Time.deltaTime);
-        localTransform.position = position;
+        localTransform.position = new Vec3(position.x, position.y, position.z);
+        mytarget = new Vec3(target.position.x, target.position.y, target.position.z);
     }
 
     private void spring(float dt) {
@@ -35,15 +38,16 @@ public class Spring : MonoBehaviour {
         // note that since we're moving by dt x0 = position - target and v0 = velocity
         // the catch is we have to update velocity every call thereby also using the velocity function we derived
 
-        Vector3 x0 = position - target.position;
+        Vec3 x0 = position - mytarget;
         float omegaZeta = omega * zeta;
         float alpha = omega * Mathf.Sqrt(1.0f - zeta * zeta);
         float exp = Mathf.Exp(-dt * omegaZeta);
         float cos = Mathf.Cos(dt * alpha);
         float sin = Mathf.Sin(dt * alpha);
-        Vector3 c2 = (velocity + x0 * omegaZeta) / alpha;
 
-        position = target.position + exp * (x0 * cos + c2 * sin);
+        Vec3 c2 = (velocity + x0 * omegaZeta) / alpha;
+
+        position = mytarget + exp * (x0 * cos + c2 * sin);
         velocity = -exp * ((x0 * omegaZeta - c2 * alpha) * cos + (x0 * alpha + c2 * omegaZeta) * sin);
     }
 }
