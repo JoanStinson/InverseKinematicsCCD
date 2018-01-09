@@ -8,10 +8,10 @@ public class ParticleController : MonoBehaviour {
 
     // Variables simulación
     private Rigidbody rbParticula;
-
-    Vec3 gravedad = new Vec3(0, -9.8f, 0);
-    int masaParticula = 5;
-    int k = 50;
+    public float gravityY = -9.8f;
+    Vec3 gravedad;
+    public int masaParticula = 5;
+    public int k = 50;
     int masaMuelle = 2;
     float longitudMuelleInicial;
     float longitudMuelleFinal = 5f;
@@ -25,6 +25,7 @@ public class ParticleController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gravedad = new Vec3(0, gravityY, 0);
         rbParticula = GetComponent<Rigidbody>();
         GameObject muelle = GameObject.Find("Muelle");
         longitudMuelleInicial = muelle.GetComponent<Collider>().bounds.size.y;
@@ -69,5 +70,20 @@ public class ParticleController : MonoBehaviour {
                             "\nK (Rigidez Muelle): " + k.ToString() + "\nMasa Muelle: " + masaMuelle.ToString() + 
                             "\nLongitud Inicial Muelle: " + longitudMuelleInicial.ToString() + "\nLongitud Final Muelle: " + longitudMuelleFinal.ToString() +
                             "\nFuerza Particula: " + fuerzaParticula.ToString() + "\nFuerza Muelle: " + fuerzaMuelle.ToString());
+    }
+
+    public void getGravity(float newGravity)
+    {
+        gravityY = newGravity;
+    }
+
+    public void getMasaParticula(int newMasaParticula)
+    {
+        masaParticula = newMasaParticula;
+    }
+
+    public void getRigidesaMolla(int newRigidesaMolla)
+    {
+        k = newRigidesaMolla;
     }
 }
