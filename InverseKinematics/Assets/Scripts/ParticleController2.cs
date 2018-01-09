@@ -35,11 +35,13 @@ public class ParticleController2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        // Aplicamos la aceleración a la particula (en caida libre es la gravedad) F = m*a ; F = 5*9'8, lo aplicamos en todo momento
+        // Aplicamos la aceleración a la particula (en caida libre es la gravedad) 
+        //F = m*a ; F = 5*9'8, lo aplicamos en todo momento
         /*float fgravedad = masaParticula * gravedad.y;
         rbParticula.AddForce(new Vector3(0, fgravedad, 0), ForceMode.Force);*/
 
-        // En tiro horizontal hay que calcular la aceleración utilizando las formulas MRUA v = vo + a * t (aislar y calcular a y calcular F)
+        // En tiro horizontal hay que calcular la aceleración utilizando las formulas 
+        //MRUA v = vo + a * t (aislar y calcular a y calcular F)
         // Le damos una velocidad inicial MRU a la particula en eje X
         if (empezar) rbParticula.velocity = velocidadInicial;
 

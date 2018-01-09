@@ -6,6 +6,7 @@ public class Spring : MonoBehaviour {
 
     public Transform target; // rest
     private Transform localTransform;
+    public GameObject child;
 
     public Vec3 position;
     public Vec3 velocity;
@@ -25,7 +26,7 @@ public class Spring : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         spring(Time.deltaTime);
-        localTransform.position = new Vec3(position.x, position.y, position.z);
+        localTransform.localScale = new Vec3(localTransform.localScale.x, localTransform.localScale.y, -position.z); // Scale
         mytarget = new Vec3(target.position.x, target.position.y, target.position.z);
     }
 
