@@ -467,11 +467,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4582095356521454, guid: 933b2b21ae0e86a4f8b3af3d4b8b8728, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -48.15
+      value: -54.34
       objectReference: {fileID: 0}
     - target: {fileID: 4582095356521454, guid: 933b2b21ae0e86a4f8b3af3d4b8b8728, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.89
+      value: 25.54
       objectReference: {fileID: 0}
     - target: {fileID: 4582095356521454, guid: 933b2b21ae0e86a4f8b3af3d4b8b8728, type: 2}
       propertyPath: m_LocalPosition.z
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -575,7 +575,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Massa Particula
+  m_Text: "Massa Part\xEDcula"
 --- !u!222 &296805038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 526e91f5506fbd74eb65ffb21cefb522, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.41599998
+      value: 0.157
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 526e91f5506fbd74eb65ffb21cefb522, type: 3}
       propertyPath: m_LocalPosition.y
@@ -633,7 +633,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 526e91f5506fbd74eb65ffb21cefb522, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.005
+      value: -0.045
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 526e91f5506fbd74eb65ffb21cefb522, type: 3}
       propertyPath: m_LocalRotation.x
@@ -863,7 +863,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523892311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 440.10522, y: -229.20001, z: 0}
+  m_LocalPosition: {x: 441.4, y: -256.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2099247109}
@@ -873,7 +873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -135.89478, y: 68.3}
+  m_AnchoredPosition: {x: -134.6, y: 40.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &552288021 stripped
@@ -1659,8 +1659,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 888011401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -566, y: 287.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -566.005, y: 287.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 996167679}
@@ -1668,8 +1668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: 9.994995, y: -10}
+  m_SizeDelta: {x: 452.49, y: 233.91}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &888011403
 MonoBehaviour:
@@ -1683,7 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2117,7 +2117,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1162495279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 440.10535, y: -178.5538, z: 0}
+  m_LocalPosition: {x: 441.40012, y: -206.15378, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1192708626}
@@ -2127,7 +2127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -135.89465, y: 118.9462}
+  m_AnchoredPosition: {x: -134.59988, y: 91.34622}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1175226302
@@ -2154,7 +2154,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1175226302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 63.4, y: -2.1590004, z: 0}
+  m_LocalPosition: {x: 58.4, y: -2.1590004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 523892312}
@@ -2162,8 +2162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 13.4, y: 47.841}
-  m_SizeDelta: {x: 80.37, y: 29.603}
+  m_AnchoredPosition: {x: 8.4, y: 47.841}
+  m_SizeDelta: {x: 75.77, y: 26.916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175226304
 MonoBehaviour:
@@ -2197,7 +2197,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: = Force
+  m_Text: "= For\xE7a"
 --- !u!222 &1175226305
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2810,32 +2810,32 @@ Prefab:
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -254
+      value: -268
       objectReference: {fileID: 0}
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -254
+      value: -268
       objectReference: {fileID: 0}
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 43.5
+      value: 33.4
       objectReference: {fileID: 0}
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000024796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224398459612498938, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 944.6
+      value: 907.3
       objectReference: {fileID: 0}
     - target: {fileID: 1424062013912958, guid: 16e41a22cff8c28419e305dcdee7451d, type: 2}
       propertyPath: m_IsActive
@@ -2864,8 +2864,28 @@ Prefab:
     - target: {fileID: 114453622233629974, guid: 16e41a22cff8c28419e305dcdee7451d,
         type: 2}
       propertyPath: m_Text
-      value: "Move mouse to move robot arm \nIncrese Height [E] | Decrease Height
-        [Q] | Reset Height [R]"
+      value: "Moure ratol\xED per moure bra\xE7 rob\xF2tic\nIncrementar Al\xE7ada
+        [E] | Decrementar Al\xE7ada [Q] | Resetejar [R]"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114453622233629974, guid: 16e41a22cff8c28419e305dcdee7451d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114453622233629974, guid: 16e41a22cff8c28419e305dcdee7451d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114453622233629974, guid: 16e41a22cff8c28419e305dcdee7451d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114453622233629974, guid: 16e41a22cff8c28419e305dcdee7451d,
+        type: 2}
+      propertyPath: m_FontData.m_RichText
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16e41a22cff8c28419e305dcdee7451d, type: 2}
@@ -2912,7 +2932,7 @@ Prefab:
     - target: {fileID: 23208601178942482, guid: c84ccc7faa76fd34e9e2f9646ba57449,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114514366388188090, guid: c84ccc7faa76fd34e9e2f9646ba57449,
         type: 2}
@@ -3414,7 +3434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: = Velocity
+  m_Text: = Velocitat
 --- !u!222 &1694761083
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3794,7 +3814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4107,7 +4127,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4259,7 +4279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
