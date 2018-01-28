@@ -28,6 +28,12 @@ public class Spring : MonoBehaviour {
         spring(Time.deltaTime);
         localTransform.localScale = new Vec3(localTransform.localScale.x, localTransform.localScale.y, -position.z); // Scale
         mytarget = new Vec3(target.position.x, target.position.y, target.position.z);
+        // Cuando la particula toca la plataforma aplicar fuerza sobre el muelle
+        if (Input.GetKey(KeyCode.A))
+            target.transform.position += new Vector3(0, 0, 1f);
+        // }
+        if (Input.GetKey(KeyCode.D)) 
+        target.transform.position -= new Vector3(0, 0, 1f);
     }
 
     private void spring(float dt) {
@@ -38,7 +44,6 @@ public class Spring : MonoBehaviour {
 
         // note that since we're moving by dt x0 = position - target and v0 = velocity
         // the catch is we have to update velocity every call thereby also using the velocity function we derived
-
         Vec3 x0 = position - mytarget;
         float omegaZeta = omega * zeta;
         float alpha = omega * Mathf.Sqrt(1.0f - zeta * zeta);

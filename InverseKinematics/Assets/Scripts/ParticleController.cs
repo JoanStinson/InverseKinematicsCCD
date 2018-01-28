@@ -7,7 +7,7 @@ using UnityEngine;
 public class ParticleController : MonoBehaviour {
 
     // Variables simulación
-    public GameObject slider1, slider2, slider3, particle;
+    public GameObject slider1, slider2, slider3, target;
     public GameObject velDown, forceDown, velUp, forceUp, forceMuelle;
     private Rigidbody rbParticula;
     public float gravityY = -9.8f;
@@ -17,13 +17,13 @@ public class ParticleController : MonoBehaviour {
     int masaMuelle = 2;
     float longitudMuelleInicial;
     float longitudMuelleFinal = 5f;
-    float fuerzaParticula;
+    public float fuerzaParticula;
     bool empezar = true;
-    float fuerzaMuelle;
+    public float fuerzaMuelle;
 
     // Variables HUD
     public Text textoTiempo;
-    private float tiempo = 3f;
+    private float tiempo = 6f;
 
     // Use this for initialization
     void Start () {
@@ -70,7 +70,7 @@ public class ParticleController : MonoBehaviour {
 
     void OnTriggerEnter (Collider other) {
         empezar = true;
-        // Cuando la particula toca la plataforma aplicar fuerza sobre el muelle
+
         if (other.gameObject.CompareTag("Plataforma")) {
             //Debug.Log("La particula ha colisionado con la plataforma!");
             GameObject muelle = GameObject.Find("Muelle");
@@ -81,6 +81,9 @@ public class ParticleController : MonoBehaviour {
             fuerzaMuelle = -k * incrementoLongitud;
             rbParticula.AddForce(new Vec3(0, fuerzaMuelle, 0), ForceMode.Impulse);
 
+            //if (Input.GetKey(KeyCode.A)) {
+
+            //}
             // Disable down and enable up
             forceMuelle.SetActive(true);
             velUp.SetActive(true);
@@ -95,8 +98,8 @@ public class ParticleController : MonoBehaviour {
         textoTiempo.text = ("Reinici de la simulació en: " + Mathf.Round(tiempo).ToString() + "s\n\n" +
                             "Gravetat: " + gravityY.ToString() + "\nMassa Partícula: " + masaParticula.ToString() + 
                             "\nRigidesa Molla: " + k.ToString() + "\n\nMassa Molla: " + masaMuelle.ToString() + 
-                            "\nLongitud Inicial Molla: " + longitudMuelleInicial.ToString() + "\nLongitud Final Molla: " + longitudMuelleFinal.ToString() +
-                            "\n\nForça Partícula: " + fuerzaParticula.ToString() + "\nForça Molla: " + fuerzaMuelle.ToString());
+                            "\nLongitud Inicial Molla: " + Mathf.RoundToInt(longitudMuelleInicial).ToString() + "\nLongitud Final Molla: " + longitudMuelleFinal.ToString() +
+                            "\n\nForça Partícula: " + Mathf.RoundToInt(fuerzaParticula).ToString() + "\nForça Molla: " + Mathf.RoundToInt(fuerzaMuelle).ToString());
     }
 
     public void getGravity() {

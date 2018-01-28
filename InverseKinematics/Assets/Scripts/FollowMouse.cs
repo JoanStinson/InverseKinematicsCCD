@@ -4,33 +4,32 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour {
 
-    public GameObject target, father, child;
-    private float height = 60f, increase = 0.5f, originalHeight = 60f;
+    public GameObject target;
+    private float height = 40f, increase = 0.5f, originalHeight = 50f;
 
     void Update() {
 
-        Ray castPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Input.GetKey(KeyCode.E)) {
-            height += increase;
-            //if (height > 90f) height = increase;
-        } else if (Input.GetKey(KeyCode.Q)) {
-            height -= increase;
-            //if (height < 0f) height = 90f;
-        } else if (Input.GetKey(KeyCode.R)) {
+        if (Input.GetKey(KeyCode.W)) {
+            target.transform.position += new Vector3(0, increase, 0);
+        }
+        else if (Input.GetKey(KeyCode.S)) {
+            target.transform.position -= new Vector3(0, increase, 0);
+        }
+        else if (Input.GetKey(KeyCode.R)) {
             height = originalHeight;
-        } else if (Input.GetKey(KeyCode.A)) {
-            child.transform.position = father.transform.position;
-            child.transform.position += new Vector3(0, 1.1f, 0);
-            child.transform.parent = father.transform;
-        } else if (Input.GetKey(KeyCode.D)) {
-            father.transform.DetachChildren();
+        }
+        else if (Input.GetKey(KeyCode.Q)) {
+            /*target.transform.position = father.transform.position;
+            target.transform.position += new Vector3(0, 4f, 0);
+            target.transform.parent = father.transform;*/
+            target.GetComponent<ParticleController>().enabled = false;
+        }
+        else if (Input.GetKey(KeyCode.E)) {
+            //father.transform.DetachChildren();
+            target.GetComponent<ParticleController>().enabled = true;
+            //child.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
 
-        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity)) {
-            target.transform.position = hit.point;
-            target.transform.position += new Vector3(0, height, 0);
-        }
+        
     }
 }
