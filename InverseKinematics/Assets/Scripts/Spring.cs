@@ -25,15 +25,29 @@ public class Spring : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        spring(Time.deltaTime);
-        localTransform.localScale = new Vec3(localTransform.localScale.x, localTransform.localScale.y, -position.z); // Scale
-        mytarget = new Vec3(target.position.x, target.position.y, target.position.z);
-        // Cuando la particula toca la plataforma aplicar fuerza sobre el muelle
-        if (Input.GetKey(KeyCode.A))
-            target.transform.position += new Vector3(0, 0, 1f);
-        // }
-        if (Input.GetKey(KeyCode.D)) 
-        target.transform.position -= new Vector3(0, 0, 1f);
+     
+        if ((target.position.z < (-3.2)) && (target.position.z > (-220)))
+        {
+            spring(Time.deltaTime);
+
+            if (position.z < 2)
+            {
+                
+                localTransform.localScale = new Vec3(localTransform.localScale.x, localTransform.localScale.y, -position.z); // Scale
+               
+            }
+            mytarget = new Vec3(target.position.x, target.position.y, target.position.z);
+            // Cuando la particula toca la plataforma aplicar fuerza sobre el muelle
+            
+        }
+        if (Input.GetKey(KeyCode.A) && (target.position.z < (-3.2)))
+        {
+            target.transform.position += new Vector3(0, 0, 2f);
+        }
+        if (Input.GetKey(KeyCode.D) && (target.position.z > (-220)))
+        {
+            target.transform.position -= new Vector3(0, 0, 2f);
+        }
     }
 
     private void spring(float dt) {
@@ -53,7 +67,10 @@ public class Spring : MonoBehaviour {
 
         Vec3 c2 = (velocity + x0 * omegaZeta) / alpha;
 
+        
         position = mytarget + exp * (x0 * cos + c2 * sin);
+        
         velocity = -exp * ((x0 * omegaZeta - c2 * alpha) * cos + (x0 * alpha + c2 * omegaZeta) * sin);
+        
     }
 }
